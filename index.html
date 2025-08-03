@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Ninja Junction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+    <link rel="stylesheet" href="internalcss.css">
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold gradient-text">Ninja Junction</h1>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#features"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Features</a>
+                    <a href="#projects"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Projects</a>
+                    <a href="events.html"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Events</a>
+                    <a href="#contact"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#about"
+                        class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">About</a>
+                </div>
+                <div class="flex items-center">
+                    <button onclick="window.location.href=`login.html`"
+                        class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Login</button>
+                    <button onclick="window.location.href=`signup.html`"
+                        class="ml-4 gradient-bg text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Sign
+                        Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-12 md:pt-32 md:pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                        <span class="block">Collaborate. Contribute. Create.</span>
+                        <span class="block gradient-text">Innovate Together.</span>
+                    </h1>
+                    <p
+                        class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                        The ultimate platform for students to find collaborators, share ideas, and work on projects
+                        together. Connect with like-minded peers across disciplines.
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <div class="flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
+                            <button onclick="toggleModal('signup-modal')"
+                                class="gradient-bg text-white px-6 py-3 rounded-md text-base font-medium hover:bg-opacity-90 transition w-full sm:w-auto">
+                                Get Started
+                            </button>
+                            <button
+                                onclick="window.location.href=`index.html#projects`" class="bg-white text-gray-700 px-6 py-3 rounded-md text-base font-medium border border-gray-300 hover:bg-gray-50 transition w-full sm:w-auto">
+                                Explore Projects
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative lg:mt-0 lg:col-span-6 flex justify-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg overflow-hidden">
+                        <div class="gradient-bg h-full w-full p-2">
+                            <div class="bg-white rounded-t-lg p-4">
+                                <div class="flex space-x-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                            </div>
+                            <img src="https://placehold.co/600x400"
+                                alt="Diverse group of students collaborating on a project in a modern university workspace"
+                                class="w-full h-auto rounded-b-lg" />
+                        </div>
+                        <div class="absolute -bottom-8 -left-8 bg-indigo-100 rounded-lg w-32 h-32 z-0"></div>
+                        <div class="absolute -top-8 -right-8 bg-emerald-100 rounded-lg w-32 h-32 z-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-12 bg-grayLast-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Powerful Features for Student Collaboration
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-gray-500 sm:mt-4">
+                    Everything you need to find collaborators and successfully complete projects.
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Find Collaborators</h3>
+                    <p class="mt-2 text-gray-500">
+                        Connect with students from different disciplines who can bring diverse skills to your project.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Project Management</h3>
+                    <p class="mt-2 text-gray-500">
+                        Organize tasks, set deadlines, and track progress all in one place for seamless teamwork.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Version Control</h3>
+                    <p class="mt-2 text-gray-500">
+                        Integrated Git support to manage your codebase and collaborate on technical projects.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Video Collaboration</h3>
+                    <p class="mt-2 text-gray-500">
+                        Built-in video calls and screen sharing for real-time collaboration and discussions.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Community Events</h3>
+                    <p class="mt-2 text-gray-500">
+                        Join hackathons, coding challenges and workshops to grow your skills and network.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover-effect">
+                    <div class="gradient-bg w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-medium text-gray-900">Verified Profiles</h3>
+                    <p class="mt-2 text-gray-500">
+                        Student identity verification ensures you're collaborating with genuine peers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase -->
+    <section id="projects" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                    Featured Student Projects
+                </h2>
+                <p class="mt-3 max-w-2xl mx-auto text-gray-500 sm:mt-4">
+                    Some of the incredible projects students have created together on our platform.
+                </p>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect">
+                    <img src="https://placehold.co/600x400"
+                        alt="Mobile app interface design showing a fitness tracking application"
+                        class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span
+                                class="inline-block bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded-md font-semibold">Mobile
+                                App</span>
+                            <span class="ml-2 text-xs text-gray-500">5 collaborators</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <!-- FitTrack -->
+                            Coming Soon...
+                        </h3>
+                        <p class="mt-2 text-gray-500">
+                            <!-- A fitness tracking mobile app that uses AI to customize workout plans. -->
+                        </p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div class="flex -space-x-2">
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                            </div>
+                            <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View Project
+                                →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect">
+                    <img src="https://placehold.co/600x400"
+                        alt="Website dashboard showing data visualization for sustainability metrics"
+                        class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span
+                                class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-md font-semibold">Web
+                                App</span>
+                            <span class="ml-2 text-xs text-gray-500">3 collaborators</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <!-- EcoTrack -->
+                            Coming Soon...
+
+                        </h3>
+                        <p class="mt-2 text-gray-500">
+                            <!-- Sustainability dashboard that tracks and visualizes environmental impact data. -->
+                        </p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div class="flex -space-x-2">
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                            </div>
+                            <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View Project
+                                →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-lg card-hover-effect">
+                    <img src="https://placehold.co/600x400"
+                        alt="Website dashboard showing data visualization for sustainability metrics"
+                        class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <div class="flex items-center mb-2">
+                            <span
+                                class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2 py-1 rounded-md font-semibold">AI/ML</span>
+                            <span class="ml-2 text-xs text-gray-500">3 collaborators</span>
+                        </div>
+                        <h3 class="text-lg font-medium text-gray-900">
+                            <!-- EcoTrack -->
+                            Coming Soon...
+
+                        </h3>
+                        <p class="mt-2 text-gray-500">
+                            <!-- Sustainability dashboard that tracks and visualizes environmental impact data. -->
+                        </p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <div class="flex -space-x-2">
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                                <img src="https://placehold.co/40x40" alt="Profile of student collaborator"
+                                    class="w-8 h-8 rounded-full border-2 border-white" />
+                            </div>
+                            <button class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">View Project
+                                →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Get in Touch</h2>
+                <p class="mt-4 text-lg text-gray-500">
+                    Have questions or want to start a project? Reach out to us!
+                </p>
+            </div>
+            <form class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                <input type="text" placeholder="Your Name"
+                    class="w-full p-4 border border-gray-300 rounded-lg input-focus" required>
+                <input type="email" placeholder="Your Email"
+                    class="w-full p-4 border border-gray-300 rounded-lg input-focus" required>
+                <textarea placeholder="Your Message"
+                    class="sm:col-span-2 w-full p-4 border border-gray-300 rounded-lg input-focus h-40 resize-none"
+                    required></textarea>
+                <button type="submit"
+                    class="sm:col-span-2 gradient-bg text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+    <!-- Login Modal -->
+    <div id="login-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+            <button onclick="toggleModal('login-modal')"
+                class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Login</h2>
+            <form>
+                <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                    required>
+                <input type="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                    required>
+                <button type="submit"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-lg w-full font-semibold hover:bg-blue-700 transition">
+                    Login
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+            <button onclick="toggleModal('signup-modal')"
+                class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 text-center text-gray-800">Sign Up</h2>
+            <form>
+                <input type="text" placeholder="Full Name" class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                    required>
+                <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                    required>
+                <input type="password" placeholder="Password" class="w-full p-3 border border-gray-300 rounded-lg mb-4"
+                    required>
+                <button type="submit"
+                    class="bg-blue-600 text-white px-6 py-3 rounded-lg w-full font-semibold hover:bg-blue-700 transition">
+                    Create Account
+                </button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.toggle('hidden');
+        }
+    </script>
+<script src="script.js"></script>
+</body>
+
+</html>
