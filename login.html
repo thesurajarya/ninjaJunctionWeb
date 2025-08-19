@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login | Ninja Junction</title>
   <link rel="stylesheet" href="internalcss.css" />
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-[var(--light)] text-[var(--dark)]">
   <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold gradient-text">Ninja Junction</h1>
-                    </div>
-                </div>
-                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
-                    <a href="index.html" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
-                    <!-- <a href="#features"
+  <nav class="bg-white shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <h1 class="text-xl font-bold gradient-text">Ninja Junction</h1>
+          </div>
+        </div>
+        <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+          <a href="index.html" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+          <!-- <a href="#features"
                         class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Features</a>
                     <a href="#projects"
                         class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Projects</a>
@@ -35,9 +37,9 @@
                         class="ml-4 gradient-bg text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-opacity-90 transition">Sign
                         Up</button>
                 </div> -->
-            </div>
         </div>
-    </nav>
+      </div>
+  </nav>
 
   <!-- Login Form -->
   <section class="flex items-center justify-center min-h-[80vh] px-4">
@@ -50,17 +52,79 @@
         </div>
         <div>
           <label for="password" class="block mb-1 font-semibold">Password</label>
-          <input type="password" id="password" name="password" required class="w-full p-2 border rounded-lg input-focus" />
+          <input type="password" id="password" name="password" required
+            class="w-full p-2 border rounded-lg input-focus" />
           <div class="text-right mt-1">
-          <a href="#" class="text-sm text-blue-500 hover:underline">Forgot Password?</a>
+            <a href="#" class="text-sm text-blue-500 hover:underline">Forgot Password?</a>
+          </div>
         </div>
-        </div>
-        <button type="submit" class="w-full mt-4 bg-[var(--primary)] hover:bg-[var(--secondary)] text-white font-semibold py-2 rounded-lg transition duration-300">Login</button>
+        <button type="submit"
+          class="w-full mt-4 bg-[var(--primary)] hover:bg-[var(--secondary)] text-white font-semibold py-2 rounded-lg transition duration-300">Login</button>
       </form>
       <p class="text-sm mt-4 text-center">
-        Don't have an account? <a href="signup.html" class="text-[var(--primary)] hover:underline">Sign up here</a>
+        <a href="#" id="forgot-password" class="text-[var(--primary)] hover:underline">Forgot password?</a>
       </p>
+
     </div>
   </section>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    document.querySelector("#forgot-password").addEventListener("click", async (e) => {
+      e.preventDefault();
+      const email = prompt("Enter your email for password reset:");
+      if (!email) return;
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert("Password reset email sent!");
+      } catch (error) {
+        console.error("Password reset error:", error);
+        alert("Error: " + error.message);
+      }
+    });
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC9uZJReWXp0qVPN-R62a-LOpzjt0qzWJk",
+      authDomain: "nj-webdb.firebaseapp.com",
+      projectId: "nj-webdb",
+      storageBucket: "nj-webdb.firebasestorage.app",
+      messagingSenderId: "860317113632",
+      appId: "1:860317113632:web:e94e778890aec599940b45",
+      measurementId: "G-GPQYS3521C"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault(); // stop page reload
+
+      const email = document.querySelector("#email").value.trim();
+      const password = document.querySelector("#password").value;
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        console.log("User logged in:", user.uid);
+
+        alert("Login successful!");
+        window.location.href = "dashboard.html"; // go to home page after login
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("Error: " + error.message);
+      }
+    });
+  </script>
+
 </body>
+
 </html>

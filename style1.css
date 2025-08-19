@@ -1,0 +1,209 @@
+:root {
+    --primary-color: #00ffe1;
+    --accent-color: #0066ff;
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --glow-color: #00ffe1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    background: linear-gradient(to right, #0066ff, #00ffe1);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 255, 225, 0.3);
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1a1a1a;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #00ffe1 10%, #0066ff 100%);
+    color: white;
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ffe1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Animated glowing dots */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bubbles span {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: var(--glow-color);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--glow-color);
+    animation: float 20s linear infinite;
+    opacity: 0.2;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0.3);
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+    }
+}
+
+/* Feature Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    background: #ffffff;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 255, 225, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 255, 225, 0.3);
+}
+
+/* CTA Section */
+.cta {
+    background: linear-gradient(135deg, #0066ff, #00ffe1);
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.cta h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Contact Page */
+.contact-form {
+    padding: 3rem 2rem;
+    background: #f0faff;
+    max-width: 600px;
+    margin: auto;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.2);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+}
+
+.contact-form button {
+    margin-top: 1rem;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #0047cc;
+}
+
+/* Events Page */
+.events {
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.event-card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 255, 225, 0.15);
+    padding: 2rem;
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    box-shadow: 0 6px 30px rgba(0, 255, 225, 0.3);
+    transform: scale(1.03);
+}
+
+/* Scroll Reveal Animations */
+[data-sr] {
+    visibility: hidden;
+}

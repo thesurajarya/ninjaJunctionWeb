@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ninja Junction | Dashboard</title>
+  <link rel="stylesheet" href="internalcss.css" />
+  <!-- <link rel="stylesheet" href="dashboard.css" /> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Dashboard-specific styles */
+
+    .dashboard-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 2rem 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 0 0 2rem 2rem;
+      color: white;
+    }
+
+    .hero-content h2 {
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+
+    .hero-graphic img {
+      width: 280px;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .stat-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.hidden {
+      display: none;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: gray;
+    }
+
+    .modal-submit {
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .modal-submit:hover {
+      background: var(--secondary);
+    }
+
+    #add-project-form input,
+    #add-project-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 0.5rem;
+    }
+
+    #add-project-form textarea {
+      min-height: 100px;
+    }
+  </style>
+</head>
+
+<body class="bg-[var(--dark)] text-[var(--light)]">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 flex items-center">
+            <h1 class="text-xl font-bold gradient-text">Ninja Junction</h1>
+          </div>
+        </div>
+        <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+          <a href="index.html" class="nav-link text-gray-900 px-3 py-2 text-sm font-medium">Home</a>
+          <a href="#projects"
+            class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Projects</a>
+          <a href="#stats" class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Stats</a>
+          <a href="#settings"
+            class="nav-link text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Settings</a>
+        </div>
+        <div class="flex items-center">
+          <button id="logout-btn"
+            class="text-gray-900 hover:text-indigo-600 px-3 py-2 text-sm font-medium">Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="dashboard-hero">
+    <div class="hero-content">
+      <h2 class="text-4xl font-bold mb-2">Welcome, <span id="user-name">User</span> 👋</h2>
+      <p class="text-lg text-gray-300">Here’s what’s happening with your projects today.</p>
+    </div>
+    <div class="hero-graphic">
+      <img src="https://undraw.co/api/illustrations/1e98b431-c96f-4cf0-b0a0-774aa78a1392" alt="Dashboard Graphic">
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="max-w-7xl mx-auto px-4 pb-12">
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-[var(--light)] text-black p-6 rounded-2xl shadow-lg mb-8">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-2xl font-semibold">Your Projects</h3>
+        <div class="flex gap-3">
+          <select id="filter-projects" class="border rounded-lg p-2">
+            <option value="all">All</option>
+            <option value="Owner">Owner</option>
+            <option value="Contributor">Contributor</option>
+          </select>
+          <button id="new-project-btn"
+            class="bg-[var(--primary)] hover:bg-[var(--secondary)] text-white px-4 py-2 rounded-lg transition">+ New
+            Project</button>
+        </div>
+      </div>
+      <div id="projects-container" class="grid md:grid-cols-3 gap-6">
+        <!-- Projects injected by JS -->
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="grid md:grid-cols-3 gap-6 mb-8">
+      <div class="stat-card">
+        <h4 class="text-xl font-bold">Total Projects</h4>
+        <p id="total-projects" class="stat-number">0</p>
+      </div>
+      <div class="stat-card">
+        <h4 class="text-xl font-bold">Owned</h4>
+        <p id="owned-projects" class="stat-number">0</p>
+      </div>
+      <div class="stat-card">
+        <h4 class="text-xl font-bold">Contributing</h4>
+        <p id="contrib-projects" class="stat-number">0</p>
+      </div>
+    </section>
+
+    <!-- Add Project Modal -->
+    <div id="project-modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="close-modal" class="close-btn">&times;</span>
+        <h3 class="text-2xl font-bold mb-4">Add New Project</h3>
+        <form id="add-project-form" class="space-y-3">
+          <input type="text" id="project-title" placeholder="Project Title" required />
+          <textarea id="project-description" placeholder="Project Description" required></textarea>
+          <input type="url" id="project-github" placeholder="GitHub Link" required />
+          <input type="text" id="project-tag" placeholder="Tag / Keyword" required />
+          <button type="submit" class="modal-submit">Add Project</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- <script type="module">
+    import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { app } from "./firebase-config.js"; // make sure this points to your Firebase config
+
+    const auth = getAuth(app);
+    const logoutBtn = document.getElementById("logout-btn");
+
+    logoutBtn.addEventListener("click", () => {
+      signOut(auth)
+        .then(() => {
+          window.location.href = "login.html"; // redirect to login after logout
+        })
+        .catch((error) => {
+          console.error("Error signing out:", error);
+          alert("Error signing out. Please try again.");
+        });
+    });
+  </script> -->
+  <script type="module" src="dashboard.js"></script>
+  <!-- <script type="module" src="dashboard.js"></script> -->
+
+</body>
+
+</html>
